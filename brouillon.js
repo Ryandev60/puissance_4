@@ -1,17 +1,17 @@
-const cases = document.getElementsByClassName("case");
+ export const cases = document.getElementsByClassName("case");
 let playerTurn = true;
 const colorPlayerOne = "rgb(244, 207, 223)";
 const colorPlayerTwo = "rgb(182, 216, 242)";
 import { animStart } from "./assets/anim.js";
 import { animVictory } from "./assets/anim.js";
-import { animStop } from "./assets/anim.js";
+import { animVictoryStop } from "./assets/anim.js";
 
 button.addEventListener("click", () => {
    for (let i = 0; i < cases.length; i++) {
       cases[i].style.backgroundColor = "";
    }
    info.innerHTML = "Play !";
-   animStop();
+   animVictoryStop();
 });
 
 for (let i = 0; i < cases.length; i++) {

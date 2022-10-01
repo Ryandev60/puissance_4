@@ -1,7 +1,3 @@
-const cases = document.getElementsByClassName("case");
-let playerTurn = true;
-const colorPlayerOne = "rgb(244, 207, 223)";
-const colorPlayerTwo = "rgb(182, 216, 242)";
 import {
    horizonVictory,
    verticalVictory,
@@ -9,14 +5,19 @@ import {
    diagonalVictory315,
 } from "./assets/victory.js";
 
-import { animStop } from "./assets/anim.js";
+import { animVictoryStop } from "./assets/anim.js";
 button.addEventListener("click", () => {
    for (let i = 0; i < cases.length; i++) {
       cases[i].style.backgroundColor = "";
    }
    info.innerHTML = "Play !";
-   animStop();
+   animVictoryStop();
 });
+
+export const cases = document.getElementsByClassName("case");
+export const colorPlayerOne = "rgb(244, 207, 223)";
+export const colorPlayerTwo = "rgb(182, 216, 242)";
+let playerTurn = true;
 
 for (let i = 0; i < cases.length; i++) {
    cases[i].addEventListener("click", () => {
@@ -63,9 +64,9 @@ export const gameLogic = (i, comparedIdx, colorPlayer) => {
 };
 
 button.addEventListener("click", () => {
-   for (let i = 0; i < cases.length; i++) {
-      cases[i].style.backgroundColor = "";
-   }
+   Array.from(cases).forEach((e) => {
+      e.className = "case";
+   });
    info.innerHTML = "Play !";
-   animStop();
+   animVictoryStop();
 });
