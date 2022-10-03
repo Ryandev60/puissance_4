@@ -9,6 +9,7 @@ export const animVictoryStart = (cases, i, nextIdx) => {
 };
 
 export const animVictory = (i, nextIdx) => {
+   console.log(cases[i]);
    cases[i].className = cases[i].className === "zoom case" ? "dezoom case" : "zoom case";
    //
    cases[i + nextIdx].className =

@@ -3,9 +3,14 @@ import {
    verticalVictory,
    diagonalVictory45,
    diagonalVictory315,
-} from "./assets/victory.js";
-
+} from "./assets/victoryConditions.js";
 import { animVictoryStop } from "./assets/anim.js";
+
+export const cases = document.getElementsByClassName("case");
+export const colorPink = "rgb(244, 207, 223)";
+export const colorBlue = "rgb(182, 216, 242)";
+let playerTurn = true;
+
 button.addEventListener("click", () => {
    for (let i = 0; i < cases.length; i++) {
       cases[i].style.backgroundColor = "";
@@ -14,40 +19,35 @@ button.addEventListener("click", () => {
    animVictoryStop();
 });
 
-export const cases = document.getElementsByClassName("case");
-export const colorPlayerOne = "rgb(244, 207, 223)";
-export const colorPlayerTwo = "rgb(182, 216, 242)";
-let playerTurn = true;
-
 for (let i = 0; i < cases.length; i++) {
    cases[i].addEventListener("click", () => {
       if (playerTurn) {
          if (cases[i + 35] && !cases[i + 35].style.backgroundColor) {
-            gameLogic(i, 35, colorPlayerOne);
+            gameLogic(i, 35, colorPink);
          } else if (cases[i + 28] && !cases[i + 28].style.backgroundColor) {
-            gameLogic(i, 28, colorPlayerOne);
+            gameLogic(i, 28, colorPink);
          } else if (cases[i + 21] && !cases[i + 21].style.backgroundColor) {
-            gameLogic(i, 21, colorPlayerOne);
+            gameLogic(i, 21, colorPink);
          } else if (cases[i + 14] && !cases[i + 14].style.backgroundColor) {
-            gameLogic(i, 14, colorPlayerOne);
+            gameLogic(i, 14, colorPink);
          } else if (cases[i + 7] && !cases[i + 7].style.backgroundColor) {
-            gameLogic(i, 7, colorPlayerOne);
+            gameLogic(i, 7, colorPink);
          } else if (cases[i] && !cases[i].style.backgroundColor) {
-            gameLogic(i, 0, colorPlayerOne);
+            gameLogic(i, 0, colorPink);
          }
       } else {
          if (cases[i + 35] && !cases[i + 35].style.backgroundColor) {
-            gameLogic(i, 35, colorPlayerTwo);
+            gameLogic(i, 35, colorBlue);
          } else if (cases[i + 28] && !cases[i + 28].style.backgroundColor) {
-            gameLogic(i, 28, colorPlayerTwo);
+            gameLogic(i, 28, colorBlue);
          } else if (cases[i + 21] && !cases[i + 21].style.backgroundColor) {
-            gameLogic(i, 21, colorPlayerTwo);
+            gameLogic(i, 21, colorBlue);
          } else if (cases[i + 14] && !cases[i + 14].style.backgroundColor) {
-            gameLogic(i, 14, colorPlayerTwo);
+            gameLogic(i, 14, colorBlue);
          } else if (cases[i + 7] && !cases[i + 7].style.backgroundColor) {
-            gameLogic(i, 7, colorPlayerTwo);
+            gameLogic(i, 7, colorBlue);
          } else if (cases[i] && !cases[i].style.backgroundColor) {
-            gameLogic(i, 0, colorPlayerTwo);
+            gameLogic(i, 0, colorBlue);
          }
       }
    });
